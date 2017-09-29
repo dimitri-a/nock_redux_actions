@@ -16,8 +16,8 @@ describe('async actions', () => {
     nock.cleanAll()
   })
 
-  
   it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
+
     nock('http://example.com/')
       .get('/todos')
       .reply(200, { body: { todos: ['do something'] } })
@@ -27,9 +27,12 @@ describe('async actions', () => {
       { type: "FETCH_TODOS_SUCCESS", body: { todos: ['do something'] } }
     ]
     const store = mockStore({ todos: [] })
+    console.log('get state=',store.getState())
 
     return store.dispatch(fetchTodos()).then(() => {
+      console.log('get state=',store.getState())
       // return of async actions
+      console.log(store.getActions())
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
