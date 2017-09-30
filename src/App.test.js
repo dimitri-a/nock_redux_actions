@@ -29,6 +29,8 @@ describe('async actions', () => {
     const store = mockStore({ todos: [] })
     console.log('get state=',store.getState())
 
+
+
     return store.dispatch(fetchTodos()).then(() => {
       //console.log('get state=',store.getState())
       // return of async actions

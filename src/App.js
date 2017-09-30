@@ -1,24 +1,26 @@
 import fetch from 'isomorphic-fetch'
 
 function fetchTodosRequest() {
-  return {
-    type: 'FETCH_TODOS_REQUEST'
-  }
+    return {
+        type: 'FETCH_TODOS_REQUEST'
+    }
 }
-function fetchTodosSuccess(body){
-  return {
-    type:'FETCH_TODOS_SUCCESS',body
-  }
+
+function fetchTodosSuccess(body) {
+    return {
+        type: 'FETCH_TODOS_SUCCESS', body
+    }
 }
 
 function fetchTodosFailure(ex) {
-  return {
-    type: "FETCH_TODOS_FAILURE",
-    ex
-  }
+    return {
+        type: "FETCH_TODOS_FAILURE",
+        ex
+    }
 }
 
 //todo how does this work???
+//this is a thunk which returns an action as a function
 export function fetchTodos() {
   return dispatch => {
     dispatch(fetchTodosRequest())
