@@ -30,9 +30,9 @@ describe('async actions', () => {
     console.log('get state=',store.getState())
 
     return store.dispatch(fetchTodos()).then(() => {
-      console.log('get state=',store.getState())
+      //console.log('get state=',store.getState())
       // return of async actions
-      console.log(store.getActions())
+      console.log('store.getActions()=',store.getActions())
       expect(store.getActions()).toEqual(expectedActions)
     })
   })

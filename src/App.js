@@ -5,11 +5,9 @@ function fetchTodosRequest() {
     type: 'FETCH_TODOS_REQUEST'
   }
 }
-
-function fetchTodosSuccess(body) {
+function fetchTodosSuccess(body){
   return {
-    type: 'FETCH_TODOS_SUCCESS',
-    body
+    type:'FETCH_TODOS_SUCCESS',body
   }
 }
 
@@ -23,7 +21,7 @@ function fetchTodosFailure(ex) {
 export function fetchTodos() {
   return dispatch => {
     dispatch(fetchTodosRequest())
-    return fetch('http://example.com/todos')
+      return fetch('http://example.com/todos')
       .then(res => res.json())
       .then(json => dispatch(fetchTodosSuccess(json.body)))
       .catch(ex => dispatch(fetchTodosFailure(ex)))
