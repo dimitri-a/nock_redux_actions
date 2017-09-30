@@ -18,6 +18,7 @@ function fetchTodosFailure(ex) {
   }
 }
 
+//todo how does this work???
 export function fetchTodos() {
   return dispatch => {
     dispatch(fetchTodosRequest())
